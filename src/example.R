@@ -10,7 +10,7 @@ fcsfiles # view the file names
 
 
 fcsSet <- read.flowSet(fcsfiles,path = "FACS OV-90") # reads a set of FCS files
-fcsSet <- fcsSet@frames %>% as.list # transforms the enviroment in a list of fcs objects
+fcsSet <- fcsSet@frames %>% as.list # transforms the environment in a list of fcs objects
 typeof(fcsSet)
 
 # define gates on a particular experiment

@@ -5,6 +5,7 @@ source("src/analyzeFCS.R")
 
 library(ggrepel)
 library(umap)
+library(ggplot2)
 
 
 cutDensity <- function(x,cut=0.05,...) {
@@ -148,3 +149,15 @@ drawGate <- function(x,y,newplot=T) {
   return(list(gate=g0,inGate=inGate))
 } 
 
+plotFour <- function(fsc,cex=.02) {
+  foo <- exprs(fsc) %>% as.data.frame
+  par(mfrow=c(2,2))
+  mySmoothScatter(foo$`FSC-A`,foo$`SSC-A`,cex=cex);title(xlab="FSC-A",ylab="SSC-A")
+  mySmoothScatter(foo$`Pacific Blue-A`,foo$`FSC-A`,cex=cex);title(xlab="PB-A",ylab="FSC-A")
+  mySmoothScatter(foo$`Pacific Blue-A`,foo$`SSC-A`,cex=cex);title(xlab="PB-A",ylab="SSC-A")
+  mySmoothScatter(foo$`Pacific Blue-A`,foo$`Pacific Blue-W`,cex=cex);title(xlab="PB-A",ylab="PB-W")
+  
+}
+
+par(mar=c(5,5,1,.5))
+plotFour(fcsSet[[89]],cex=.03)
