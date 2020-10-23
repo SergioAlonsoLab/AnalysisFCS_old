@@ -1,4 +1,4 @@
-# Intall required libraries, if nescessary
+# Intall required libraries, if necessary
 
 install_if_not_installed <- function(pkgname) {
   if(!requireNamespace(pkgname)) install.packages(pkgname) 
@@ -175,7 +175,6 @@ analyzeFCS_set <- function(fcsSet,gates) {
   for(i in 1:ncol(results)) results[,i] <- unlist(results[,i])
   invisible(results)
 }
-
 
 # ggplot version 
 
