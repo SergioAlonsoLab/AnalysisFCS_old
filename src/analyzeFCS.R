@@ -176,6 +176,16 @@ analyzeFCS_set <- function(fcsSet,gates) {
   invisible(results)
 }
 
+
+gating <- function(x,y,plotGraph=T) {
+  if(plotGraph) mySmoothScatter(x,y)
+  gate <- locator()
+  polygon(gate,col = "#FFFF0055")
+  pointsInGate(x,y,gate) == 1
+}
+
+
+
 # ggplot version 
 
 
